@@ -13,4 +13,18 @@ class PostController extends Controller
 
         return response()->json($posts);
     }
+
+    /**
+      * Post details
+      */
+      public function show($slug) {
+
+        $post = Post::where('slug', $slug)->with(['category', 'tags'])->first();
+        
+        if (! $post) {
+           $post['not_found'] = true;
+        }
+
+        return response()->json($post);
+     }
 }

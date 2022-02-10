@@ -18,4 +18,7 @@ Route::namespace('Api')
     ->group( function() {
         // Post archive
         Route::get('/posts', 'PostController@index');
+
+        // Post Details
+        Route::get('/posts/{slug}', 'PostController@show');
     });
