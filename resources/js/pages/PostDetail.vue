@@ -4,8 +4,13 @@
             <h1>{{ post.title }}</h1>
 
             <h4 v-if="post.category != null">Category: {{ post.category.name }}</h4>
+            <h4 v-else>Uncategorized</h4>
 
             <Tags class="mb-5" :list="post.tags" v-if="post.tags.length != 0"/>
+
+            <figure class="img-fluid" v-if="post.cover">
+                <img width="200" :src="post.cover" :alt="post.title">
+            </figure>
 
             <p>{{ post.content }}</p>
         </div>
